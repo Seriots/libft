@@ -6,7 +6,7 @@
 /*   By: lgiband <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 10:26:02 by lgiband           #+#    #+#             */
-/*   Updated: 2022/05/05 20:23:25 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/05/05 20:37:42 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*result;
 
 	if (size == 0)
-		return (0);	
+		return (0);
 	if (size * nmemb / size != nmemb)
 		return (0);
 	result = malloc(size * nmemb);
