@@ -1,4 +1,4 @@
-SRCS = 	ft_atoi.c \
+SRCS = ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \
@@ -31,9 +31,8 @@ SRCS = 	ft_atoi.c \
 		ft_toupper.c \
 		ft_strlcat.c \
 		ft_strdup.c \
-		ft_strjoin.c
-
-BONUS = ft_lstadd_front.c \
+		ft_strjoin.c \
+		ft_lstadd_front.c \
 		ft_lstadd_back.c \
 		ft_lstclear.c \
 		ft_lstdelone.c \
@@ -41,13 +40,35 @@ BONUS = ft_lstadd_front.c \
 		ft_lstlast.c \
 		ft_lstmap.c \
 		ft_lstnew.c \
-		ft_lstsize.c
+		ft_lstsize.c \
+		get_next_line/get_next_line.c \
+		get_next_line/get_next_line_utils.c \
+		
+FT_PRINTF = ft_printf.c \
+			ft_printf_utils.c \
+			ft_printf_utils2.c \
+			ft_printf_components.c \
+			conversions_files/ft_putstr_printf.c \
+			conversions_files/ft_putnbr_printf.c \
+			conversions_files/ft_putchar_printf.c \
+			conversions_files/ft_puthexa_min_printf.c \
+			conversions_files/ft_putpointeur_printf.c \
+			conversions_files/ft_putpointeur2_printf.c \
+			conversions_files/ft_puthexa_maj_printf.c \
+			conversions_files/ft_putnbr_unsigned_printf.c
 
-OBJS = ${SRCS:.c=.o}
+FT_PRINTF_SRCS = $(addprefix ft_printf/, $(FT_PRINTF))
 
-BONUS_OBJS = ${BONUS:.c=.o}
+OBJS = $(SRCS:.c=.o)
 
-CC = gcc
+FT_PRINTF_OBJS = $(FT_PRINTF_SRCS:.c=.o)
+
+CC = cc
+
+INC = -I. \
+	-Iget_next_line \
+	-Ift_printf \
+	-Ift_printf/conversions_files
 
 HEADERS = libft.h
 
@@ -55,21 +76,20 @@ FLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 
+%.o:%.c
+		gcc -c $(FLAGS) $(INC) $< -o $@
+
 all : $(NAME)
 
-$(NAME) : ${OBJS}
-	 ar rlcs $(NAME) $(OBJS)
-
-./%o:./%.c
-		gcc -c $(FLAGS) -Ilibft.h $< -o $@
-
-bonus : ${OBJS} ${BONUS_OBJS}
-	ar rlcs ${NAME} $(OBJS) $(BONUS_OBJS)
+$(NAME) : $(OBJS) $(FT_PRINTF_OBJS)
+	 ar rlcs $(NAME) $(OBJS) $(FT_PRINTF_OBJS)
 
 clean :
-	rm -rf ${OBJS} $(BONUS_OBJS)
+	rm -rf $(OBJS) $(FT_PRINTF_OBJS)
 
 fclean : clean
-	rm -rf ${NAME}
+	rm -rf $(NAME)
 
 re : fclean all
+
+.PHONY : re fclean clean all

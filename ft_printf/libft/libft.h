@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 08:46:01 by lgiband           #+#    #+#             */
-/*   Updated: 2022/05/13 22:00:13 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/05/04 08:50:07 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "get_next_line/get_next_line.h"
-# include "ft_printf/ft_printf.h"
-# include "ft_printf/conversions_files/conversions.h"
 
 typedef struct s_list
 {
