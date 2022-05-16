@@ -6,7 +6,7 @@
 /*   By: lgiband <lgiband@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 08:46:01 by lgiband           #+#    #+#             */
-/*   Updated: 2022/05/13 22:00:13 by lgiband          ###   ########.fr       */
+/*   Updated: 2022/05/16 12:36:13 by lgiband          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_power(int nb, int power);
 
 /*complex function*/
 char	*ft_substr(char const *s, unsigned int start, size_t len);
